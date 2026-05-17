@@ -17,14 +17,9 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 import google.generativeai as genai
 
 # -----------------------------
-# LOAD ENV
-# -----------------------------
-load_dotenv()
-
-# -----------------------------
 # GEMINI LLM (ONLY FOR ANSWERS)
 # -----------------------------
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 llm_model = genai.GenerativeModel("gemini-2.5-flash")
 
 # -----------------------------
